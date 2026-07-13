@@ -1,0 +1,156 @@
+/* styles.css
+   ---------------------------------------------------------------------------
+   Plain, hand-written CSS (no framework) so every rule is understandable.
+   A dark, code-editor-ish theme. Class names follow a simple block--modifier
+   convention (e.g. .verdict--ok) that matches the JSX.
+   --------------------------------------------------------------------------- */
+
+:root {
+  --bg: #0f1117;
+  --panel: #171a21;
+  --border: #262b36;
+  --text: #e6e8ec;
+  --muted: #9aa1ac;
+  --accent: #5b9dff;
+  --ok: #2ec16b;
+  --bad: #ef4d4d;
+  --warn: #e0a133;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.app-header {
+  padding: 14px 24px;
+  border-bottom: 1px solid var(--border);
+  background: var(--panel);
+}
+.brand { font-weight: 700; font-size: 18px; color: var(--text); }
+.app-main { max-width: 1100px; margin: 0 auto; padding: 24px; }
+
+/* ---- Problem list -------------------------------------------------------- */
+.problem-table { width: 100%; border-collapse: collapse; }
+.problem-table th,
+.problem-table td {
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+}
+.problem-table th { color: var(--muted); font-weight: 600; }
+
+.difficulty { font-size: 13px; font-weight: 600; }
+.difficulty--easy { color: var(--ok); }
+.difficulty--medium { color: var(--warn); }
+.difficulty--hard { color: var(--bad); }
+
+/* ---- Problem detail: two columns ---------------------------------------- */
+.problem-detail {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+@media (max-width: 800px) {
+  .problem-detail { grid-template-columns: 1fr; }
+}
+
+.statement h1 { font-size: 22px; }
+.markdown {
+  white-space: pre-wrap;
+  font-family: inherit;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+  line-height: 1.5;
+}
+
+.samples { margin-top: 16px; }
+.sample {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.sample pre {
+  background: #0b0d12;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 8px 10px;
+  margin: 4px 0 0;
+}
+
+/* ---- Editor panel ------------------------------------------------------- */
+.editor-panel { display: flex; flex-direction: column; }
+.editor-label { color: var(--muted); font-size: 13px; margin-bottom: 6px; }
+.editor {
+  width: 100%;
+  min-height: 340px;
+  resize: vertical;
+  background: #0b0d12;
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px;
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+  font-size: 13px;
+  line-height: 1.5;
+  tab-size: 4;
+}
+
+.submit-btn {
+  margin-top: 12px;
+  align-self: flex-start;
+  background: var(--accent);
+  color: #06122b;
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+.submit-btn:disabled { opacity: 0.6; cursor: default; }
+
+/* ---- Verdict ------------------------------------------------------------ */
+.result {
+  margin-top: 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px;
+  background: var(--panel);
+}
+.result-head { display: flex; align-items: center; gap: 12px; }
+.result-meta { color: var(--muted); font-size: 13px; }
+.result-detail {
+  margin-top: 10px;
+  white-space: pre-wrap;
+  background: #0b0d12;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 10px;
+  color: #ffb4b4;
+  font-size: 12px;
+}
+
+.verdict {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 13px;
+}
+.verdict--ok { background: rgba(46, 193, 107, 0.15); color: var(--ok); }
+.verdict--bad { background: rgba(239, 77, 77, 0.15); color: var(--bad); }
+.verdict--warn { background: rgba(224, 161, 51, 0.15); color: var(--warn); }
+.verdict--pending { background: rgba(154, 161, 172, 0.15); color: var(--muted); }
+
+.error { color: var(--bad); }

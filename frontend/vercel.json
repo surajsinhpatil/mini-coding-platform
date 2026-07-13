@@ -1,0 +1,7 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "//": "SPA fallback: this is a single-page app, so every path must serve index.html and let React Router handle it. Without this, refreshing on /problems/two-sum would 404.",
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}

@@ -1,0 +1,5 @@
+# Keep the build context small and never bake local files into the image.
+node_modules
+.env
+*.log
+.DS_Store

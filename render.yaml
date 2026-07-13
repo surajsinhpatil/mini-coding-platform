@@ -1,0 +1,25 @@
+# render.yaml — Render "Blueprint" for the backend API.
+# -----------------------------------------------------------------------------
+# With this file in the repo, Render can create the service automatically:
+# New → Blueprint → pick this repo. You still set the two secret env vars
+# (DATABASE_URL, CORS_ORIGIN) in the dashboard because they're marked sync:false.
+#
+# The service builds from backend/Dockerfile (Node + g++) and runs the judge in
+# host mode. See DEPLOY.md for the full walkthrough.
+# -----------------------------------------------------------------------------
+
+services:
+  - type: web
+    name: mini-coding-platform-api
+    runtime: docker
+    plan: free
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    healthCheckPath: /api/health
+    envVars:
+      - key: EXECUTION_MODE
+        value: host
+      - key: DATABASE_URL   # your Neon connection string — set in the dashboard
+        sync: false
+      - key: CORS_ORIGIN    # your Vercel URL — set after the frontend is deployed
+        sync: false
