@@ -32,9 +32,8 @@ export default function ProblemList() {
       <div style={{ maxWidth: 480, margin: "3rem auto", textAlign: "center", lineHeight: 1.6 }}>
         <p style={{ fontSize: "1.1rem", fontWeight: 600 }}>Loading problems…</p>
         <p style={{ color: "#9ca3af" }}>
-          This demo runs on a free server that goes to sleep when it&apos;s not
-          in use, so the first load can take up to <strong>30–60 seconds</strong>{" "}
-          to wake up. Thanks for your patience — it&apos;s much faster after that!
+          The first load can take up to a minute while the demo server wakes up
+          — thanks for your patience.
         </p>
       </div>
     );
