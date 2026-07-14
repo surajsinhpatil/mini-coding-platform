@@ -130,28 +130,3 @@ curl http://localhost:4000/api/problems/two-sum         # one problem + samples
 **Turn on the secure sandbox** (optional): install Docker, `docker pull gcc:13`,
 set `EXECUTION_MODE=docker` in `backend/.env`, restart the API. Submissions now
 compile and run inside locked-down containers — same endpoints, same verdicts.
-
-## Deploying (free)
-
-To put this online for free (GitHub + Neon Postgres + Render API + Vercel
-frontend), follow **[DEPLOY.md](DEPLOY.md)** — a click-by-click guide. Note: on
-Render's free tier the judge runs in `host` mode (the Docker sandbox needs a host
-that allows nested Docker).
-
-## Study notes (interview prep)
-
-Each layer has a self-contained note in `docs/` with the mental model, a
-file-by-file breakdown, the concepts to master, and likely interview questions:
-
-`01-foundation` · `02-database` · `03-api` · `04-execution` · `05-frontend`
-· `06-docker` · `07-polish` (architecture recap, resume bullets, demo script).
-
-## Build progress
-
-- [x] Layer 1 — Project foundation & architecture
-- [x] Layer 2 — Database (PostgreSQL)
-- [x] Layer 3 — Backend API (Express routes)
-- [x] Layer 4 — Code execution engine (subprocess)
-- [x] Layer 5 — Frontend (React)
-- [x] Layer 6 — Docker sandbox upgrade
-- [x] Layer 7 — Polish, docs & resume bullets
